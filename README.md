@@ -1,5 +1,5 @@
 
-````md
+
 # StreamVault WebApp
 
 StreamVault is a full-stack web application designed for managing and streaming media content. The project provides user authentication, content organization, and media management features through an interactive web interface.
@@ -100,5 +100,4 @@ http://localhost:8080
 
 This project is for educational and portfolio purposes.
 
-```
-```
+
