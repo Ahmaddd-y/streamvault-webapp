@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - StreamVault</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+<div class="form-box register-box">
+    <h1>Create Account</h1>
+
+    <p id="registerMessage" class="form-message"></p>
+
+    <form action="../register" method="post" autocomplete="off">
+        <label>Full Name</label>
+        <input type="text" name="full_name" required autocomplete="off">
+
+        <label>Email</label>
+        <input type="email" name="email" required autocomplete="off">
+
+        <label>Password</label>
+        <input type="password" name="password" required autocomplete="new-password">
+
+        <label>Date of Birth</label>
+        <input type="date" name="date_of_birth" required autocomplete="off">
+
+        <label>Country</label>
+        <input type="text" name="country" required autocomplete="off">
+
+        <label>Plan</label>
+        <select name="plan_id" required autocomplete="off">
+            <option value="1">Basic</option>
+            <option value="2">Standard</option>
+            <option value="3">Premium</option>
+        </select>
+
+        <button type="submit">Proceed to Pay</button>
+    </form>
+
+    <p class="register-login-text">
+        Already have an account?
+        <a href="login.html">Login</a>
+    </p>
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const msg = document.getElementById("registerMessage");
+
+    if (params.get("error") === "exists") {
+        msg.textContent = "This email already exists.";
+        msg.className = "form-message error";
+    } else if (params.get("error") === "missing") {
+        msg.textContent = "Please fill in all required fields.";
+        msg.className = "form-message error";
+    } else if (params.get("error") === "password") {
+        msg.textContent = "Password must be at least 6 characters.";
+        msg.className = "form-message error";
+    } else if (params.get("error")) {
+        msg.textContent = "Registration failed. Please check your details.";
+        msg.className = "form-message error";
+    }
+</script>
+
+</body>
+</html>

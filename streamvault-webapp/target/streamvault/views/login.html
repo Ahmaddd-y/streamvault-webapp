@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - StreamVault</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body.login-page {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            background:
+                    linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.82)),
+                    url("https://assets.nflxext.com/ffe/siteui/vlv3/258d0f77-2241-4282-b613-8354a7675d1a/web/AE-en-20250721-TRIFECTA-perspective_55e37b4e-0f10-4d95-bb65-cd7484d55f19_large.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .login-background-overlay {
+            position: fixed;
+            inset: 0;
+            background:
+                    linear-gradient(to right, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.78));
+            z-index: 0;
+        }
+
+        .login-top-logo {
+            position: relative;
+            z-index: 2;
+            padding: 32px 60px;
+            font-size: 36px;
+            font-weight: 900;
+            color: #e50914;
+            letter-spacing: 1px;
+        }
+
+        .login-card {
+            position: relative;
+            z-index: 2;
+            width: 430px;
+            min-height: 560px;
+            margin: 15px auto 80px;
+            padding: 48px 48px 40px;
+            background: rgba(0, 0, 0, 0.76);
+            border-radius: 6px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75);
+        }
+
+        .login-card h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 28px;
+            color: #fff;
+        }
+
+        .login-card input[type="email"],
+        .login-card input[type="password"] {
+            width: 100%;
+            height: 52px;
+            background: #333;
+            border: 1px solid #333;
+            border-radius: 4px;
+            color: #fff;
+            padding: 0 16px;
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+
+        .login-card input::placeholder {
+            color: #aaa;
+        }
+
+        .login-card input:focus {
+            outline: none;
+            background: #444;
+            border-color: #777;
+        }
+
+        .login-card button {
+            width: 100%;
+            height: 50px;
+            margin-top: 22px;
+            background: #e50914;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 800;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .login-card button:hover {
+            background: #f40612;
+        }
+
+        .login-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #b3b3b3;
+            font-size: 13px;
+            margin-top: 14px;
+        }
+
+        .login-options label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .login-options input[type="checkbox"] {
+            width: 14px;
+            height: 14px;
+            margin: 0;
+            accent-color: #737373;
+        }
+
+        .login-options a {
+            color: #b3b3b3;
+            text-decoration: none;
+        }
+
+        .login-options a:hover {
+            text-decoration: underline;
+            color: white;
+        }
+
+        .signup-line {
+            color: #737373;
+            margin-top: 68px;
+            font-size: 16px;
+        }
+
+        .signup-line a {
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .signup-line a:hover {
+            text-decoration: underline;
+        }
+
+        .captcha-text {
+            color: #8c8c8c;
+            font-size: 13px;
+            line-height: 1.4;
+            margin-top: 18px;
+        }
+
+        .login-error {
+            color: #ff4d4d;
+            font-size: 14px;
+            min-height: 20px;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 650px) {
+            .login-top-logo {
+                padding: 24px;
+                font-size: 28px;
+            }
+
+            .login-card {
+                width: 100%;
+                min-height: auto;
+                margin: 0;
+                padding: 36px 24px;
+                border-radius: 0;
+                background: rgba(0, 0, 0, 0.86);
+            }
+        }
+    </style>
+</head>
+
+<body class="login-page">
+
+<div class="login-background-overlay"></div>
+
+<div class="login-top-logo">
+    STREAMVAULT
+</div>
+
+<div class="login-card">
+    <h1>Sign In</h1>
+
+    <div id="errorBox" class="login-error"></div>
+
+    <form action="../login" method="post" autocomplete="off">
+        <input
+                type="email"
+                name="email"
+                placeholder="Email or phone number"
+                required
+                autocomplete="off">
+
+        <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+                autocomplete="new-password">
+
+        <button type="submit">Sign In</button>
+
+        <div class="login-options">
+            <label>
+                <input type="checkbox" name="remember">
+                Remember me
+            </label>
+
+            <a href="#">Need help?</a>
+        </div>
+    </form>
+
+    <p class="signup-line">
+        New to StreamVault?
+        <a href="register.html">Sign up now.</a>
+    </p>
+
+    <p class="captcha-text">
+        This page is protected by StreamVault security to make sure you are not a bot.
+    </p>
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const error = params.get("error");
+
+    if (error) {
+        document.getElementById("errorBox").textContent = error;
+    }
+</script>
+
+</body>
+</html>
